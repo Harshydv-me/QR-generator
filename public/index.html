@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="main-container">
+    <div class="left">
+      <h1 class="logo">QR Code Generator</h1>
+      <p class="description">
+        QR Code Generator helps you simplify sharing. Just paste your URL and get a scannable QR instantly.
+      </p>
+    </div>
+
+    <div class="right">
+        <style>
+  input:focus {
+    border-color: #ed6a5a;
+    outline: none;
+  }
+</style>
+      <form action="/generate" method="POST" class="step" autocomplete="off">
+        <h2>Enter your URL</h2>
+        <input type="text" name="url" placeholder="https://example.com" required />
+        <button type="submit">Generate QR</button>
+      </form>
+
+    <div class="step">
+  <h2>Your QR Code</h2>
+
+  <div id="qrResult" class="qr-box">
+    <p id="placeholder" class="placeholder">Your QR code will appear here after generation.</p>
+  </div>
+
+  <a id="downloadBtn" href="qr_img.png" download="qr-code.png" class="download-btn" style="display: none;">
+    Download PNG
+  </a>
+</div>
+
+    </div>
+  </div>
+
+  <script>
+  // Check if QR code has been generated
+  if (window.location.search.includes("generated=true")) {
+    const qrBox = document.getElementById("qrResult");
+    const placeholder = document.getElementById("placeholder");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    // Remove placeholder
+    if (placeholder) placeholder.remove();
+
+    // Create QR image
+    const img = document.createElement("img");
+    img.src = "qr_img.png";
+    img.alt = "Generated QR Code";
+    img.classList.add("qr-image");
+    qrBox.appendChild(img);
+
+    // Show download button
+    downloadBtn.style.display = "inline-block";
+  }
+</script>
+
+
+</body>
+</html>

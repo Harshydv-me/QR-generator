@@ -1,0 +1,160 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #f4f1bb;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Layout */
+.main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Left Panel */
+.left {
+  flex: 1;
+  padding-right: 120px;
+  padding-top: 125px;
+}
+
+.logo {
+  font-size: 4rem;
+  color: #ed6a5a;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+/* Right Panel */
+.right {
+  flex: 1;
+  background-color: #fbf6ef;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.step {
+  margin-bottom: 30px;
+}
+
+.step h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #ed6a5a;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #9bc1bc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3c6460;
+}
+
+.qr-box {
+  border: 2px dashed #9bc1bc;
+  padding: 20px;
+  width: 425px;
+  min-height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.qr-box .qr-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #ed6a5a;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  
+}
+
+a:hover {
+  background-color: #e4361f;
+}
+
+a{
+  transition: background-color 0.3s ease;
+}
+
+/* Animations */
+.left, .right {
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slideInLeft 1s ease forwards;
+}
+
+.right {
+  transform: translateX(100px);
+  animation: slideInRight 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
